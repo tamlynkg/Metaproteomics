@@ -16,10 +16,10 @@ library("dplyr")
 #Set output directory
 outdir=paste('BV',sep='')
 
-#Path for heatmap
+#Set path for heatmap
 heatmap_path=paste(outdir,'heatmaps/',sep='')
 
-#Cretae directory
+#Crete directory
 dir.create(heatmap_path, showWarnings = TRUE, recursive = FALSE, mode = "0777")
 
 #Load data
@@ -29,6 +29,7 @@ Negative <- data[grep("Negative_", row.names(data)),]
 Intermediate <- data[grep("Intermediate_", row.names(data)),]
 Positive <- data[grep("Positive_", row.names(data)),]
 
+#Set condition colours
 condition_colors <- unlist(lapply(rownames(data), function(x){
   if(grepl("Negative", x)) '#FF0000'
   else if(grepl("Positive", x)) '#228B22'
