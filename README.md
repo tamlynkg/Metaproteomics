@@ -6,6 +6,6 @@ Series of scripts used on metaproteomics data.
 
 "MaxQuant is a quantitative proteomics software package designed for analyzing large mass-spectrometric data sets."
 
-A series scripts were adapted from Matthys Potgieter and Argahavan Alistolani.
+A series of scripts were adapted from Matthys Potgieter and Argahavan Alistolani.
 
 The DecisionTree.py script was adapted from Jason Wong (Towards data science)
