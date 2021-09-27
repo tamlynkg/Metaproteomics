@@ -25,6 +25,7 @@ dir.create(heatmap_path, showWarnings = TRUE, recursive = FALSE, mode = "0777")
 #Load data
 data <- read.table("Results/Excluded <2 peptides/BPheatmaps/bp_bv_limma.txt", sep = "\t", row.names = 1, header = TRUE)
 
+#Searches txt.file for regular expressions and return lines containing the matched expression 
 Negative <- data[grep("Negative_", row.names(data)),]
 Intermediate <- data[grep("Intermediate_", row.names(data)),]
 Positive <- data[grep("Positive_", row.names(data)),]
