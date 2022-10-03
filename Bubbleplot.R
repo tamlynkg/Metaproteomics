@@ -1,6 +1,5 @@
-#set your working directory by either setwd() 
-#or manually in R studio--> Session --> Set Working Directory --> Choose Directory
-#upload your data to R - exchange "Your_csv_file.csv" with the name of your csv file
+#upload your data to R 
+
 pc = read.delim("DEproteins.txt", header = TRUE)
 pcm = melt(pc, id = c("Sample"))
 colours = c( "#A54657",  "#582630", "#F7EE7F", "#4DAA57","#F1A66A","#F26157", "#F9ECCC", "#679289", "#33658A",
