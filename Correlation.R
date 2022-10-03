@@ -3,6 +3,7 @@ my_data1 <- t(my_data)
 res <- cor(my_data1)
 round(res, 2)
 cor(my_data1, use = "complete.obs")
+
 library("Hmisc")
 res2 <- rcorr(as.matrix(my_data1))
 res2
