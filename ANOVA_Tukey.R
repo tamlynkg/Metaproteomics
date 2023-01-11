@@ -1,7 +1,7 @@
 library(vegan)
 
 # read the table
-soil_chem <- read.delim("TotalNTreeIndex.txt", header = T)
+soil_chem <- read.delim("", header = T)
 
 # attach the table for easy access
 attach(soil_chem)
