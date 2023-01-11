@@ -1,11 +1,19 @@
+install.packages("bnlearn")
 library(bnlearn)
+if (!requireNamespace("BiocManager", quietly = TRUE))
+ install.packages("BiocManager")
+BiocManager::install()
+BiocManager::install(c("graph", "Rgraphviz"))
+nlibrary(Rgraphviz)
 
-my_data <- read.delim("fungivsclinvar.txt", row.names = 1, header = TRUE)
-#bn_df <- t(my_data)
-bn_df1 <- as.data.frame(my_data)
-bn_df1 <- transform(bn_df1, HC = as.numeric(HC), 
-                    Cytokines = as.numeric(Cytokines), Nugent.Score = as.numeric(Nugent.Score))
-str(bn_df1)
-res <- hc(bn_df1)
+my_data <- read.delim("", row.names = 1, header = TRUE) 
+bn_df <- t(my_data) bn_df <- as.data.frame(bn_df)
+ 
+dag = hc(bn_df)
+fitted = bn.fit(dag, data = bn_df)
+graphviz.plot(dag, shape = "ellipse")
+
+str(bn_df)
+res <- hc(bn_df)
 plot(res)
-res$arcs <- res$arcs[-which((res$arcs[,'from'] == "M..Work" & res$arcs[,'to'] == "Family")),]
+ 
