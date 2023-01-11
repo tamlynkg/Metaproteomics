@@ -40,4 +40,3 @@ ggboxplot(df, x = "Treatment.Group", y = "Weight", fill = c('orange','yellow','r
     subtitle = get_test_label(res.aov, detailed = TRUE),
     caption = get_pwc_label(pwc)
   )
-?ggboxplot
