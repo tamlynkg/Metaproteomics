@@ -1,16 +1,12 @@
 ####################################
-# Data Professor                   #
-# http://youtube.com/dataprofessor #
 # http://github.com/dataprofessor  #
 ####################################
 
 # Importing libraries
-library(datasets) # Contains the Iris data set
 install.packages("caret")
 library(caret) # Package for machine learning algorithms / CARET stands for Classification And REgression Training
 
-# Importing the Iris data set
-data(iris)
+# Importing the data set
 data <- read.delim("Desktop/Machine learning/Inflammation Category/InflammationProteins.txt", header = TRUE, row.names = 1)
 
 install.packages("skimr")
@@ -18,7 +14,6 @@ library(skimr)
 skim(data)
 
 # Check to see if there are missing data with your own dataset? Summation function, to see if there a missing vals
-sum(is.na(iris))
 sum(is.na(data))
 
 # To achieve reproducible model; set the random seed number
@@ -31,7 +26,6 @@ set.seed(100)
 # Split one part into training set (create a training model); apply the training model to predict the class label in the 20% of the testing set
 # Training set - represents 80% of dataset
 # Testing set - represents 20% of dataset
-#TrainingIndex <- createDataPartition(iris$Species, p=0.8, list = FALSE) #Specify the class label
 TrainingIndex <- createDataPartition(data$Inflammation_category, p=0.8, list = FALSE)
 # Index of dataset (like ID) each flower will be assigned a unique ID, 150 flowers - 120 rows (80% of data), randomly selected out of 150 flowers
 TrainingSet <- data[TrainingIndex,] # Training Set
@@ -80,7 +74,6 @@ Model.cv.confusion <-confusionMatrix(Model.cv, TrainingSet$Inflammation_category
 
 print(Model.training.confusion)
 # Each column will represent actual class label, each row will represent predicted class label
-# One of the virginica has been mispredicted to be a versicolor
 # Accuracy is not the best way to measure performance of model, especially if dataset is imbalanced
 # Don't want bias of unequal distribution of class label to have an effect 
 print(Model.testing.confusion)
@@ -92,9 +85,8 @@ Importance <- varImp(Model)
 plot(Importance2)
 ?plot
 Importance2 <- Importance{Importance$importance[1:100,]}
-#for each iris flower class will see which variable was the most important for the prediciton
+
 plot(Importance, cex = .00001)
-?plot
 
 write.table(Importance2, file = "Predictors_inflammation_proteins.txt", sep = "\t",
             row.names = TRUE, col.names = NA)
