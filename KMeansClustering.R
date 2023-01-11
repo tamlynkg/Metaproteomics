@@ -1,11 +1,8 @@
-data("USArrests")      # Loading the data set
-df <- scale(USArrests) # Scaling the data
-
 df <- read.delim("Non-imputed/kingdom_nonimputed.txt", header = TRUE, sep = "\t", row.names = 1)
 df <- scale(df)
 df <- na.omit(df)
 
-?read.delim
+
 # View the firt 3 rows of the data
 head(df, n = 3)
 
